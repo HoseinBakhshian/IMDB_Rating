@@ -128,8 +128,8 @@ function Page() {
                     <Col xs={"auto"} sm={6} md={10}>
                       <img src={detail.Poster} style={{ width: "200px" }}></img>
                     </Col>
-                    <Col xs={6} md={12} className="justify-items-start">
-                      <ul className="info fw-bold">
+                    <Col xs={12} sm={6} md={12} className="justify-items-start">
+                      <ul className="info fw-bold" >
                         <li className="fs-5 fw-bold">{detail.Title}</li>
                         <li>{detail.Year}</li>
                         <li>
