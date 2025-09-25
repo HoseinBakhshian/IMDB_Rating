@@ -34,12 +34,6 @@ function Page() {
         }
         const responses = await Promise.all(requests);
 
-        //Find the top 3 and the bottom 3
-        const mergedEpisodes = responses.flatMap((response) => response.data.Episodes);
-        const sortedNumbers = mergedEpisodes.sort((a, b) => b.imdbRating - a.imdbRating);
-        const firstThree = sortedNumbers.slice(0, 3);
-        const lastThree = sortedNumbers.slice(-3);
-        setLowest_Highest([...firstThree, ...lastThree]);
 
         //Set data for the Linechart and Piechart
         let allPoints = [];
@@ -67,6 +61,14 @@ function Page() {
           }
           season_episodes.push(season.data.Episodes);
         });
+
+
+        //Find the top 3 and the bottom 3
+        const mergedEpisodes = responses.flatMap((response) => response.data.Episodes);
+        const sortedNumbers = mergedEpisodes.sort((a, b) => b.imdbRating - a.imdbRating);
+        const firstThree = sortedNumbers.slice(0, 3);
+        const lastThree = sortedNumbers.slice(-3);
+        setLowest_Highest([...firstThree, ...lastThree]);
 
         setMaxLength(length);
         setEpisodes(season_episodes);
